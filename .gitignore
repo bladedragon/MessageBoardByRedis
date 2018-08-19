@@ -27,3 +27,5 @@
 /mvnw
 /mvnw.cmd
 /.mvn/
+src/main/resources/static/
+src/test/java/team/redrock/messageboard/service/
