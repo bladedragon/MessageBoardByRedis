@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<!–suppress ALL –>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MessageBoard</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        body{background: #ddd;}
+
+        div{width:300px;height:100px;margin:10px auto;font-family: 新蒂下午茶体;font-size:24px;}
+
+        /*.box1{background: #71a879;text-align: center;}*/
+
+        .box2{background: #6a8bbc;font-family: 汉仪新蒂永乐大典}
+
+        .box3{background: #dea46b;text-align: center;}
+
+    </style>
+</head>
+<body>
+<div class="box2">
+<form action="#" th:action="@{/message}" th:object="${message}" method="post">
+    <p>你的名字: <input type="text" th:field="*{username}" /></p>
+    <p>你想说什么: <input type="text" th:field="*{msg}" /></p>
+    <p><input type="submit" value="Submit"  /> <input type="reset" value="Reset" /></p>
+</form>
+</div>
+
+<h1><p align="center">留言板</p></h1>
+
+<div>
+<tbody >
+
+<tr th:each="msg : ${msglist}">
+    <p><th scope="row" th:text="${msg.time}"></th>
+    <td th:text="${msg.username}"></td>
+    <br><td th:text="${msg.msg}"></td></p>
+</tr>
+
+</tbody>
+
+</div>
+</body>
+</html>
+
+
